@@ -1,0 +1,2 @@
+export const CHANGE_ACTIVE_FOLDER = "CHANGE_FOLDER";
+export const GET_MESSAGES = "GET_MESSAGES";

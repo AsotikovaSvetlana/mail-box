@@ -1,0 +1,19 @@
+.mail {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+
+  div {
+    &:nth-child(1) {
+      width: 20%;
+    }
+
+    &:nth-child(2) {
+      width: 55%;
+    }
+
+    &:nth-child(3) {
+      width: 25%;
+    }
+  }
+}
