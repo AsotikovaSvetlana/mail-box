@@ -1,7 +1,11 @@
 .mail {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
   display: flex;
   align-items: center;
   column-gap: 30px;
+  border-bottom: 1px solid darkgray;
+  cursor: pointer;
 
   div {
     &:nth-child(1) {

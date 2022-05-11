@@ -1,0 +1,20 @@
+.mail {
+  width: 70%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+
+  &__head {
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid darkgray;
+  }
+
+  &__body {
+    padding: 15px 30px;
+    border: 1px solid darkgray;
+  }
+}
