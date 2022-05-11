@@ -12,11 +12,15 @@
       transform: rotate(90deg);
       transition: transform 0.2s linear 0s;
     }
+
+    &.modal {
+      margin: 0 0 0 25px;
+      font-size: 18px;
+    }
   }
 
   &__userFolder {
     padding-left: 25px;
-    padding-top: 10px;
     list-style-type: none;
 
     li {

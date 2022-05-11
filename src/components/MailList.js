@@ -5,6 +5,7 @@ import MailItem from "./MailItem";
 import { messages } from '../data/messages';
 import { getMessages } from "../store/actions/actionCreators";
 import moment from "moment";
+import AddFolderPopup from "./AddFolderPopup";
 
 const MailList = () => {
   const { activeFolder } = useSelector(state => state.activeFolder);
@@ -28,6 +29,7 @@ const MailList = () => {
           )
         )
       }
+      <AddFolderPopup />
     </div>
   )
 }

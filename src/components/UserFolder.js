@@ -5,7 +5,7 @@ const UserFolder = ({ item, activeFolder, handleClickFolder }) => {
   return (
     <li
       onClick={() => handleClickFolder(item.name)} 
-      className={`${activeFolder === item.name ? `${styles.active}` : ''}`}
+      className={`${styles.item} ${activeFolder === item.name ? `${styles.active}` : ''}`}
     >
       {item.name}
     </li>

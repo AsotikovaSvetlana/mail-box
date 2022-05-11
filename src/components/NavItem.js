@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styles from '../styles/NavItem.module.scss';
 import UserFolder from "./UserFolder";
+import { showModal } from "../store/actions/actionCreators";
 
 const NavItem = ({ folder, handleClickFolder, userFolders }) => {
   const [active, setActive] = useState(false);
   const { activeFolder } = useSelector(state => state.activeFolder);
+  const dispatch = useDispatch();
+
+  const handleModal = (e) => {
+    dispatch(showModal());
+    e.stopPropagation();
+  }
 
   return (
     <>
@@ -32,6 +39,12 @@ const NavItem = ({ folder, handleClickFolder, userFolders }) => {
               {'>'}
             </span>
             {folder.name}
+            <span
+              className={styles.modal}
+              onClick={handleModal}
+            >
+              +
+            </span>
           </div>
           <ul className={`${styles.item__userFolder} ${active ? `${styles.show}` : `${styles.hide}`}`}>
             {
