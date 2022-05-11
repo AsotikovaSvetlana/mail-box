@@ -1,6 +1,18 @@
 .item {
   padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
   border-radius: 10px 0 0 10px;
+
+  &__icons {
+    display: inline-block;
+    
+    span {
+      width: 20px;
+      margin-left: 15px;
+      display: inline-block;
+    }
+  }
 }
 
 .active {
