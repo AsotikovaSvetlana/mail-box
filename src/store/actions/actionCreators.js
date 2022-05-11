@@ -6,6 +6,9 @@ import {
   GET_USER_FOLDERS_REQ,
   GET_USER_FOLDERS_ERROR,
   GET_USER_FOLDERS_SUCCESS,
+  SHOW_EDIT_MODAL,
+  HIDE_EDIT_MODAL,
+  CHANGE_INPUT_EDIT,
 } from './actionTypes';
 
 export const changeFolder = (name) => (
@@ -22,6 +25,18 @@ export const showModal = () => (
 
 export const hideModal = () => (
   {type: HIDE_MODAL}
+)
+
+export const showEditModal = (folder) => (
+  {type: SHOW_EDIT_MODAL, payload: {folder}}
+)
+
+export const hideEditModal = () => (
+  {type: HIDE_EDIT_MODAL}
+)
+
+export const changeInputEdit = (value) => (
+  {type: CHANGE_INPUT_EDIT, payload: {value}}
 )
 
 export const getUserFoldersRequest = () => (

@@ -4,6 +4,7 @@ import { ReactComponent as Del } from '../assets/icons/icon-del.svg';
 import { ReactComponent as Edit } from '../assets/icons/icon-edit.svg';
 import styles from '../styles/UserFolder.module.scss';
 import { getUserFolders } from "../store/actions/actionCreators";
+import { showEditModal } from "../store/actions/actionCreators";
 
 const UserFolder = ({ item, activeFolder, handleClickFolder }) => {
   const dispatch = useDispatch();
@@ -25,6 +26,11 @@ const UserFolder = ({ item, activeFolder, handleClickFolder }) => {
     } 
   }
 
+  const handleEditFolder = async (e) => {
+    e.stopPropagation();
+    dispatch(showEditModal(item));
+  }
+
   return (
     <li
       onClick={() => handleClickFolder(item.name)} 
@@ -32,7 +38,7 @@ const UserFolder = ({ item, activeFolder, handleClickFolder }) => {
     >
       {item.name}
       <div className={styles.item__icons}>
-        <span>
+        <span onClick={handleEditFolder}>
           <Edit />
         </span>
         <span onClick={handleRemoveFolder}>
