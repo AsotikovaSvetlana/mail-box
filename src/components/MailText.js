@@ -7,7 +7,7 @@ import moment from "moment";
 const MailText = () => {
   const { messages } = useSelector(state => state.messages);
   const { id } = useParams();
-  const { name, date, message } = messages.filter(item => item.id == id)[0];
+  const { name, date, message } = messages.filter(item => item.id === +id)[0];
 
   return (
     <>
