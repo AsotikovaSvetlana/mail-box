@@ -5,7 +5,8 @@ export const messages = [
     email: "Eliseo@gardner.biz",
     message: "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium",
     type: "inbox",
-    date: '2022-05-07'
+    date: '2022-05-07',
+    userFolder: 'Папка 1',
   },
   {
     id: 2,
@@ -13,7 +14,8 @@ export const messages = [
     email: "Jayne_Kuhic@sydney.com",
     message: "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et",
     type: "inbox",
-    date: '2022-05-05'
+    date: '2022-05-05',
+    userFolder: 'Папка 2',
   },
   {
     id: 3,
@@ -101,7 +103,8 @@ export const messages = [
     email: "Kariane@jadyn.tv",
     message: "fuga eos qui dolor rerum\ninventore corporis exercitationem\ncorporis cupiditate et deserunt recusandae est sed quis culpa\neum maiores corporis et",
     type: "inbox",
-    date: '2021-03-25'
+    date: '2021-03-25',
+    userFolder: 'Папка 3',
   },
   {
     id: 14,

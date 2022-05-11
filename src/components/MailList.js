@@ -18,7 +18,7 @@ const MailList = () => {
     <div className={styles.list}>
       {
         messages
-          .filter(item => item.type === activeFolder)
+          .filter(item => item.userFolder === activeFolder || (item.type === activeFolder && !item.userFolder))
           .sort((a, b) => moment(b.date) - moment(a.date))
           .map(message => (
             <MailItem 
