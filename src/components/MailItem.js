@@ -16,7 +16,7 @@ const MailItem = ({ message }) => {
         {message.name}
       </div>
       <div>
-        {message.message}
+        {message.message.slice(0, 70)}
       </div>
       <div>
         {moment(message.date).format('DD.MM.YYYY')}

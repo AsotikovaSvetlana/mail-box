@@ -1,20 +1,27 @@
 .mail {
+  height: 80vh;
   width: 70%;
-  padding: 30px;
+  padding: 20px 30px;
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 25px;
+  font-size: 17px;
+  z-index: 10;
 
   &__head {
-    padding: 15px 30px;
+    padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid darkgray;
+    font-weight: 500;
+    background-color: var(--mainFon);
+    border-radius: 5px;
   }
 
   &__body {
-    padding: 15px 30px;
-    border: 1px solid darkgray;
+    padding: 35px 30px;
+    flex-grow: 1;
+    background-color: var(--mainFon);
+    border-radius: 5px;
   }
 }
