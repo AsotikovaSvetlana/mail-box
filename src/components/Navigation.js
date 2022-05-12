@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styles from '../styles/Navigation.module.scss';
 import NavItem from "./NavItem";
 import { changeFolder } from "../store/actions/actionCreators";
@@ -9,6 +10,7 @@ import { getUserFolders } from "../store/actions/actionCreators";
 const Navigation = () => {
   const [folders, setFolders] = useState([]);
   const { userFolders } = useSelector(state => state.userFolders);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,6 +23,7 @@ const Navigation = () => {
 
   const handleClickFolder = (name) => {
     dispatch(changeFolder(name));
+    navigate(`/folder/${name}`);
   }
 
   return (

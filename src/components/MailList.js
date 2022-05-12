@@ -1,24 +1,18 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import styles from '../styles/MailList.module.scss';
 import MailItem from "./MailItem";
-import { messages } from '../data/messages';
-import { getMessages } from "../store/actions/actionCreators";
 import moment from "moment";
 
 const MailList = () => {
   const { activeFolder } = useSelector(state => state.activeFolder);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMessages(messages));
-  }, [dispatch])
+  const { messages } = useSelector(state => state.messages);
   
-  return (
+  return messages && (
     <div className={styles.list}>
       {
         messages
-          .filter(item => item.userFolder === activeFolder || (item.type === activeFolder && !item.userFolder))
+          .filter(item => item.userFolder ? (item.userFolder === activeFolder) : (item.type === activeFolder && !item.userFolder))
           .sort((a, b) => moment(b.date) - moment(a.date))
           .map(message => (
             <MailItem 
