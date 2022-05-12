@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mail-box/static/css/main.fc5ac247.css",
-    "main.js": "/mail-box/static/js/main.ed3b5624.js",
-    "static/media/icon-edit.svg": "/mail-box/static/media/icon-edit.ec47ac7ec99f2006738b3b8eaafaa82b.svg",
-    "static/media/icon-del.svg": "/mail-box/static/media/icon-del.fe3207da9610b12b036fcff90fa60175.svg",
+    "main.css": "/mail-box/static/css/main.8aa808ac.css",
+    "main.js": "/mail-box/static/js/main.b02066ff.js",
+    "static/media/icon-edit.svg": "/mail-box/static/media/icon-edit.905768e2e62464d37ff54e0913b857a1.svg",
+    "static/media/icon-del.svg": "/mail-box/static/media/icon-del.ebf8d4ccaa66c507e8567fabd4734aef.svg",
     "index.html": "/mail-box/index.html",
-    "main.fc5ac247.css.map": "/mail-box/static/css/main.fc5ac247.css.map",
-    "main.ed3b5624.js.map": "/mail-box/static/js/main.ed3b5624.js.map"
+    "main.8aa808ac.css.map": "/mail-box/static/css/main.8aa808ac.css.map",
+    "main.b02066ff.js.map": "/mail-box/static/js/main.b02066ff.js.map"
   },
   "entrypoints": [
-    "static/css/main.fc5ac247.css",
-    "static/js/main.ed3b5624.js"
+    "static/css/main.8aa808ac.css",
+    "static/js/main.b02066ff.js"
   ]
 }
