@@ -9,6 +9,7 @@ import {
   SHOW_EDIT_MODAL,
   HIDE_EDIT_MODAL,
   CHANGE_INPUT_EDIT,
+  SET_DEFAULT_FOLDERS,
 } from './actionTypes';
 
 export const changeFolder = (name) => (
@@ -65,5 +66,24 @@ export const getUserFolders = () => async (dispatch) => {
     dispatch(getUserFoldersSuccess(userFolders));
   } catch (error) {
     dispatch(getUserFoldersError(error.message));
+  }
+}
+
+export const setDefaultFolders = (folders) => (
+  {type: SET_DEFAULT_FOLDERS, payload: {folders}}
+)
+
+export const getDefaultFolders = () => async (dispatch) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_URL}/folders`);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    const folders = await response.json();
+    dispatch(setDefaultFolders(folders));
+  } catch (error) {
+    console.log('error');
   }
 }

@@ -6,7 +6,7 @@ import Main from './pages/Main';
 import styles from './styles/App.module.scss';
 import AddFolderPopup from './components/AddFolderPopup';
 import EditFolderPopup from './components/EditFolderPopup';
-import { getMessages } from './store/actions/actionCreators';
+import { getMessages, getDefaultFolders, getUserFolders } from './store/actions/actionCreators';
 import { messages as data } from './data/messages';
 
 function App() {
@@ -15,6 +15,8 @@ function App() {
 
   useEffect(() => {
     dispatch(getMessages(data));
+    dispatch(getDefaultFolders());
+    dispatch(getUserFolders());
   }, [dispatch])
 
   return (
