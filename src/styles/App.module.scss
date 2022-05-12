@@ -1,5 +1,8 @@
 .main {
   height: 100%;
-  padding: 30px 15px;
-  background-color: rgb(219, 220, 221);
+  padding: 30px 25px;
+  background-image: var(--backgroundImage);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

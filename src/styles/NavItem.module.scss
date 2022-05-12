@@ -1,21 +1,42 @@
 .item {
-  padding: 10px 20px;
-  border-radius: 10px 0 0 10px;
+  margin-bottom: 5px;
+  padding: 13px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--mainFon);
+    border-radius: 10px;
+    opacity: 0.5;
+    z-index: -1;
+  }
+
   span {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 16px;
+    width: 15px;
+    transform: rotate(90deg);
+    transition: transform 0.2s linear 0s;
 
     &.transform {
-      transform: rotate(90deg);
+      transform: rotate(180deg);
       transition: transform 0.2s linear 0s;
     }
 
     &.modal {
-      margin: 0 0 0 25px;
-      font-size: 18px;
+      width: 15px;
+      margin-left: auto;
     }
   }
 
@@ -25,13 +46,14 @@
 
     li {
       padding-bottom: 10px;
+      font-weight: 600;
       cursor: pointer;
     }
   }
 }
 
 .active {
-  background-color: lightgray;
+  background-color: var(--mainFon);
 }
 
 .show {

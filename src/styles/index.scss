@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap');
+@import '_variables';
 
 * {
   margin: 0;
@@ -6,9 +8,17 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
-  height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--primaryColor);
 }
 
 img {
@@ -17,4 +27,5 @@ img {
 
 #root {
   height: 100%;
+  max-height: 999999px;
 }

@@ -1,0 +1,13 @@
+body {
+  --backgroundImage: url(../assets/images/clouds.jpg);
+  --mainFon: #ECF3F5;
+  --mainBorder: #ECF3F5;
+  --primaryColor: #000000;
+}
+
+body .dark {
+  --backgroundImage: url(../assets/images/stars.jpg);
+  --mainFon: #1f1f1f;
+  --mainBorder: #1f1f1f;
+  --primaryColor: #FFFFFF;
+}
