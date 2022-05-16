@@ -1,14 +1,13 @@
 import {
   CHANGE_ACTIVE_FOLDER,
   GET_MESSAGES,
-  SHOW_MODAL,
+  SHOW_ADD_MODAL,
+  SHOW_EDIT_MODAL,
   HIDE_MODAL,
+  CHANGE_INPUT_MODAL,
   GET_USER_FOLDERS_REQ,
   GET_USER_FOLDERS_ERROR,
   GET_USER_FOLDERS_SUCCESS,
-  SHOW_EDIT_MODAL,
-  HIDE_EDIT_MODAL,
-  CHANGE_INPUT_EDIT,
   SET_DEFAULT_FOLDERS,
 } from './actionTypes';
 
@@ -20,24 +19,42 @@ export const getMessages = (messages) => (
   {type: GET_MESSAGES, payload: {messages}}
 )
 
-export const showModal = () => (
-  {type: SHOW_MODAL}
-)
-
-export const hideModal = () => (
-  {type: HIDE_MODAL}
+export const showAddModal = () => (
+  {type: SHOW_ADD_MODAL}
 )
 
 export const showEditModal = (folder) => (
   {type: SHOW_EDIT_MODAL, payload: {folder}}
 )
 
-export const hideEditModal = () => (
-  {type: HIDE_EDIT_MODAL}
+export const hideModal = () => (
+  {type: HIDE_MODAL}
 )
 
-export const changeInputEdit = (value) => (
-  {type: CHANGE_INPUT_EDIT, payload: {value}}
+export const sentFolder = () => async (dispatch, getState) => {
+  const { handleFolder: { nameFolder } } = getState();
+  if (!nameFolder.name.trim()) return;
+
+  try {
+    const response = await fetch(`${process.env.REACT_APP_URL}/user-folders`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(nameFolder),
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    dispatch(hideModal());
+    dispatch(getUserFolders());
+  } catch (e) {
+    console.log('error');
+  }
+}
+
+export const changeInputModal = (value) => (
+  {type: CHANGE_INPUT_MODAL, payload: {value}}
 )
 
 export const getUserFoldersRequest = () => (

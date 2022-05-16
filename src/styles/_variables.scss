@@ -3,8 +3,8 @@ body {
   --mainFon: #ECF3F5;
   --mainBorder: #ECF3F5;
   --primaryColor: #000000;
-  --contrastColor: #009bee;
-  --contrastHover: #1aadfc;
+  --contrastColor: #f1514f;
+  --contrastHover: #f1514f;
   --modalBackground: #FFFFFF;
   --modalBorder: rgb(148, 148, 148);
 }
@@ -14,4 +14,6 @@ body .dark {
   --mainFon: #1f1f1f;
   --mainBorder: #1f1f1f;
   --primaryColor: #FFFFFF;
+  --contrastColor: #009bee;
+  --contrastHover: #1aadfc;
 }

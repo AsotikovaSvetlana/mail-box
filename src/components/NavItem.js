@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from '../styles/NavItem.module.scss';
 import UserFolder from "./UserFolder";
-import { showModal } from "../store/actions/actionCreators";
+import { showAddModal } from "../store/actions/actionCreators";
 import { ReactComponent as Arrow } from '../assets/icons/arrow.svg';
 import { ReactComponent as Plus } from '../assets/icons/plus.svg';
 
@@ -12,7 +12,7 @@ const NavItem = ({ folder, handleClickFolder, userFolders }) => {
   const dispatch = useDispatch();
 
   const handleModal = (e) => {
-    dispatch(showModal());
+    dispatch(showAddModal());
     e.stopPropagation();
   }
 

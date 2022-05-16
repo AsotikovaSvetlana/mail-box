@@ -9,7 +9,8 @@ import { showEditModal } from "../store/actions/actionCreators";
 const UserFolder = ({ item, activeFolder, handleClickFolder }) => {
   const dispatch = useDispatch();
 
-  const handleRemoveFolder = async () => {
+  const handleRemoveFolder = async (e) => {
+    e.stopPropagation();
     try {
       const response = await fetch(`${process.env.REACT_APP_URL}/user-folders/${item.id}`, {
         method: 'DELETE',

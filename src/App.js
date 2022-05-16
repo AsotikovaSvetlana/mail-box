@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Mail from './pages/Mail';
 import Main from './pages/Main';
 import styles from './styles/App.module.scss';
-import AddFolderPopup from './components/AddFolderPopup';
-import EditFolderPopup from './components/EditFolderPopup';
+import FolderPopup from './components/FolderPopup';
 import { getMessages, getDefaultFolders, getUserFolders } from './store/actions/actionCreators';
 import { messages as data } from './data/messages';
 
@@ -28,8 +27,7 @@ function App() {
           <Route path="/message/:id" element={<Mail />} />
         </Routes>
       </main>
-      <AddFolderPopup />
-      <EditFolderPopup />
+      <FolderPopup />
     </>
   );
 }
