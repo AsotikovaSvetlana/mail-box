@@ -1,26 +1,31 @@
 .mail {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  column-gap: 30px;
   font-size: 14px;
   line-height: 20px;
   background-color: var(--mainFon);
   border-radius: 15px;
-  cursor: pointer;
 
-  div {
-    &:nth-child(1) {
-      width: 20%;
-    }
+  &__link {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    text-decoration: none;
+    border-radius: 15px;
+    color: inherit;
 
-    &:nth-child(2) {
-      width: 55%;
-    }
-
-    &:nth-child(3) {
-      width: 25%;
-      text-align: center;
+    span {
+      &:nth-child(1) {
+        width: 20%;
+      }
+  
+      &:nth-child(2) {
+        width: 55%;
+      }
+  
+      &:nth-child(3) {
+        width: 25%;
+        text-align: center;
+      }
     }
   }
 }

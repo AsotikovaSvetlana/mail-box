@@ -9,7 +9,7 @@ const MailList = () => {
   const { messages } = useSelector(state => state.messages);
   
   return messages && (
-    <div className={styles.list}>
+    <ul className={styles.list}>
       {
         messages
           .filter(item => item.userFolder ? (item.userFolder === activeFolder) : (item.type === activeFolder && !item.userFolder))
@@ -22,7 +22,7 @@ const MailList = () => {
           )
         )
       }
-    </div>
+    </ul>
   )
 }
 

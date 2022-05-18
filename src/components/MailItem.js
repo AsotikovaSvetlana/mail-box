@@ -1,27 +1,23 @@
 import React from "react";
 import styles from '../styles/MailItem.module.scss';
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import moment from "moment";
 
 const MailItem = ({ message }) => {
-  const navigate = useNavigate();
-
-  const handleMailClick = () => {
-    navigate(`/message/${message.id}`);
-  }
-
   return (
-    <div className={styles.mail} onClick={handleMailClick}>
-      <div>
-        {message.name}
-      </div>
-      <div>
-        {message.message.slice(0, 70)}
-      </div>
-      <div>
-        {moment(message.date).format('DD.MM.YYYY')}
-      </div>
-    </div>
+    <li className={styles.mail}>
+      <Link to={`/message/${message.id}`} className={styles.mail__link}>
+        <span>
+          {message.name}
+        </span>
+        <span>
+          {message.message.slice(0, 70)}
+        </span>
+        <span>
+          {moment(message.date).format('DD.MM.YYYY')}
+        </span>
+      </Link>
+    </li>
   )
 }
 
