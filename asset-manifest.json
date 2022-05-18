@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/mail-box/static/css/main.b6df4e6b.css",
-    "main.js": "/mail-box/static/js/main.2000f6d4.js",
+    "main.css": "/mail-box/static/css/main.7a7eb225.css",
+    "main.js": "/mail-box/static/js/main.8dcb50bb.js",
     "static/media/light-fon.jpg": "/mail-box/static/media/light-fon.38dfda3ab1fceea8d356.jpg",
     "static/media/dark-fon.jpg": "/mail-box/static/media/dark-fon.49af268a87d89fd95ae9.jpg",
     "static/media/plus.svg": "/mail-box/static/media/plus.d2c8885bfe6baa9032c02191932ada89.svg",
@@ -9,11 +9,11 @@
     "static/media/icon-del.svg": "/mail-box/static/media/icon-del.ebf8d4ccaa66c507e8567fabd4734aef.svg",
     "static/media/arrow.svg": "/mail-box/static/media/arrow.86c0c13a7f5a563efb62e47199ccb831.svg",
     "index.html": "/mail-box/index.html",
-    "main.b6df4e6b.css.map": "/mail-box/static/css/main.b6df4e6b.css.map",
-    "main.2000f6d4.js.map": "/mail-box/static/js/main.2000f6d4.js.map"
+    "main.7a7eb225.css.map": "/mail-box/static/css/main.7a7eb225.css.map",
+    "main.8dcb50bb.js.map": "/mail-box/static/js/main.8dcb50bb.js.map"
   },
   "entrypoints": [
-    "static/css/main.b6df4e6b.css",
-    "static/js/main.2000f6d4.js"
+    "static/css/main.7a7eb225.css",
+    "static/js/main.8dcb50bb.js"
   ]
 }
