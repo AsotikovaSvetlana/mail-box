@@ -1,12 +1,19 @@
 .item {
-  padding: 10px 20px;
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-weight: 600;
+
+  &__link {
+    padding: 10px 20px 10px 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    color: inherit;
+  }
 
   &__icons {
-    display: inline-block;
+    display: flex;
     
     span {
       width: 20px;
@@ -20,7 +27,7 @@
   &::before {
     content: "";
     position: absolute;
-    left: 2px;
+    left: 35px;
     display: inline-block;
     width: 10px;
     height: 10px;

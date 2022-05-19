@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import styles from '../styles/NavItem.module.scss';
 import UserFolder from "./UserFolder";
@@ -17,23 +18,24 @@ const NavItem = ({ folder, handleClickFolder, userFolders }) => {
   }
 
   return (
-    <>
+    <li className={styles.item}>
       {
         folder.type !== 'userFolders'
         ?
-        <>
-          <div 
-            className={`${styles.item} ${activeFolder === folder.type ? `${styles.active}` : ''}`} 
-            onClick={() => handleClickFolder(folder.type)}
-          >
-            {folder.name}
-          </div>
-        </>
+        <Link
+          to={`/folder/${folder.type}`}
+          className={`${styles.item__link} ${activeFolder === folder.type ? `${styles.active}` : ''}`} 
+          onClick={() => handleClickFolder(folder.type)}
+        >
+          {folder.name}
+        </Link>
         :
         <>
-          <div 
-            className={`${styles.item} ${activeFolder === folder.type ? `${styles.active}` : ''}`} 
+          <div
+            className={styles.item__link} 
             onClick={() => setActive(prevState => !prevState)}
+            onKeyDown={(e) => e.key === "Enter" && setActive(prevState => !prevState)}
+            tabIndex="0"
           >
             <span
               className={`${active ? `${styles.transform}` : ''}`}
@@ -55,7 +57,7 @@ const NavItem = ({ folder, handleClickFolder, userFolders }) => {
           </ul>
         </>
       }
-    </>
+    </li>
   )
 }
 
