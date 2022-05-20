@@ -42,7 +42,7 @@
       font-weight: 600;
     }
 
-    div {
+    > div {
       font-size: 16px;
     }
   }
@@ -85,4 +85,15 @@
       background-color: var(--contrastHover);
     }
   }
+}
+
+.error {
+  width: 70%;
+  margin-left: auto;
+  padding-right: 25px;
+  padding-top: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--contrastColor);
 }

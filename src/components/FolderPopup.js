@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from '../styles/FolderPopup.module.scss';
 import { hideModal, changeInputModal, sentFolder } from "../store/actions/actionCreators";
 
 const FolderPopup = () => {
+  const [error, setError] = useState('');
   const { showModal, nameFolder, title } = useSelector(state => state.handleFolder);
+  const { userFolders } = useSelector(state => state.userFolders);
   const dispatch = useDispatch();
 
   const handleModalClose = () => {
+    setError('');
     dispatch(hideModal());
   }
 
@@ -18,7 +21,15 @@ const FolderPopup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(sentFolder());
+
+    if (!nameFolder.name.trim()) {
+      setError('Введите имя папки');
+    } else if (userFolders.find(item => item.name === nameFolder.name.trim())) {
+      setError('Папка с таким именем уже существует');
+    } else {
+      setError('');
+      dispatch(sentFolder());
+    }
   }
 
   return (
@@ -36,10 +47,11 @@ const FolderPopup = () => {
               />
             </span>
           </label>
+          <div className={styles.error}>{error}</div>
         </div>
         <div className={styles.buttons}>
           <button type="submit">Ок</button>
-          <button onClick={handleModalClose}>Отменить</button>
+          <button type="button" onClick={handleModalClose}>Отменить</button>
         </div>
       </form>
       <div className={styles.popup__overlay} onClick={handleModalClose}></div>
