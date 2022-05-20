@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import styles from '../styles/NavItem.module.scss';
 import UserFolder from "./UserFolder";
-import { showAddModal } from "../store/actions/actionCreators";
+import { showAddModal, showSubmenu } from "../store/actions/actionCreators";
 import { ReactComponent as Arrow } from '../assets/icons/arrow.svg';
 import { ReactComponent as Plus } from '../assets/icons/plus.svg';
 
 const NavItem = ({ folder, handleClickFolder, userFolders }) => {
-  const [active, setActive] = useState(false);
-  const { activeFolder } = useSelector(state => state.activeFolder);
+  const { activeFolder, submenu } = useSelector(state => state.activeFolder);
   const dispatch = useDispatch();
 
   const handleModal = (e) => {
     dispatch(showAddModal());
     e.stopPropagation();
+  }
+
+  const handleSubmenu = () => {
+    dispatch(showSubmenu());
   }
 
   return (
@@ -33,12 +36,12 @@ const NavItem = ({ folder, handleClickFolder, userFolders }) => {
         <>
           <div
             className={styles.item__link} 
-            onClick={() => setActive(prevState => !prevState)}
-            onKeyDown={(e) => e.key === "Enter" && setActive(prevState => !prevState)}
+            onClick={handleSubmenu}
+            onKeyDown={(e) => e.key === "Enter" && handleSubmenu()}
             tabIndex="0"
           >
             <span
-              className={`${active ? `${styles.transform}` : ''}`}
+              className={`${submenu ? `${styles.transform}` : ''}`}
             >
               <Arrow />
             </span>
@@ -50,7 +53,7 @@ const NavItem = ({ folder, handleClickFolder, userFolders }) => {
               <Plus />
             </span>
           </div>
-          <ul className={`${styles.item__userFolder} ${active ? `${styles.show}` : `${styles.hide}`}`}>
+          <ul className={`${styles.item__userFolder} ${submenu ? `${styles.show}` : `${styles.hide}`}`}>
             {
               userFolders.map(item => <UserFolder item={item} activeFolder={activeFolder} key={item.id} handleClickFolder={handleClickFolder}/>)
             }

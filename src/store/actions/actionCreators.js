@@ -9,6 +9,8 @@ import {
   GET_USER_FOLDERS_ERROR,
   GET_USER_FOLDERS_SUCCESS,
   SET_DEFAULT_FOLDERS,
+  REMOVE_USER_FOLDER_SUCCESS,
+  SHOW_SUBMENU,
 } from './actionTypes';
 
 export const changeFolder = (name) => (
@@ -104,3 +106,29 @@ export const getDefaultFolders = () => async (dispatch) => {
     console.log('error');
   }
 }
+
+export const removeUserFolderSuccess = () => (
+  {type: REMOVE_USER_FOLDER_SUCCESS}
+)
+
+export const removeUserFolder = (id) => async (dispatch) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_URL}/user-folders/${id}`, {
+      method: 'DELETE',
+      headers: {'Content-Type': 'application/json'},
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    
+    dispatch(removeUserFolderSuccess());
+    dispatch(getUserFolders());
+  } catch (error) {
+    console.log('error');
+  } 
+}
+
+export const showSubmenu = () => (
+  {type: SHOW_SUBMENU}
+)
