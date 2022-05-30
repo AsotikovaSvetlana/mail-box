@@ -1,4 +1,5 @@
 .mail {
+  position: relative;
   font-size: 14px;
   line-height: 20px;
   background-color: var(--mainFon);
@@ -12,6 +13,11 @@
     text-decoration: none;
     border-radius: 15px;
     color: inherit;
+    transition: box-shadow 0.1s linear 0s;
+
+    &:hover {
+      box-shadow: rgba(3, 1, 1, 0.259) 0px 6px 13px 0px;
+    }
 
     span {
       &:nth-child(1) {
@@ -26,6 +32,67 @@
         width: 25%;
         text-align: center;
       }
+
+      &:nth-child(4) {
+        width: 25px;
+        height: 25px;
+        transition: transform 0.1s linear 0s;
+      }
     }
   }
+
+  &__options {
+    height: 100%;
+    width: max-content;
+    padding-right: 10px;
+    padding-left: 20px;
+    display: none;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 45px;
+    background-color: var(--mainFon);
+
+    &_form {
+      margin-right: 15px;
+      display: flex;
+      column-gap: 5px;
+
+      select {
+        padding: 3px 5px;
+        font-family: inherit;
+        font-size: 12px;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      button {
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--contrastColor);
+        color: #ffffff;
+        cursor: pointer;
+        transition: background 0.2s linear 0s;
+
+        &:hover {
+          background-color: var(--contrastHover);
+        }
+      }
+    }
+
+    &_del {
+      width: 23px;
+      height: 23px;
+      cursor: pointer;
+    }
+  }
+}
+
+.open {
+  display: flex;
+}
+
+.transform {
+  transform: rotate(-90deg);
 }
