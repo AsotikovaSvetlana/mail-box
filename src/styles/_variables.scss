@@ -8,13 +8,19 @@ body {
   --modalBackground: #FFFFFF;
   --modalBorder: rgb(148, 148, 148);
   --navigationRadius: 10px;
+  --switcherFon: #DFE2EA;
+  --switcherToggle: #ffffff;
+  --switcherShadow: 0 2px 15px rgb(0 0 0 / 15%);
 }
 
-body .dark {
+body.dark {
   --backgroundImage: url(../assets/images/light-fon.jpg);
   --mainFon: #1f1f1f;
   --mainBorder: #1f1f1f;
   --primaryColor: #FFFFFF;
   --contrastColor: #009bee;
   --contrastHover: #1aadfc;
+  --switcherFon: #009bee;
+  --switcherToggle: #2d2c35;
+  --switcherShadow: 0 2px 15px #1aadfc;
 }

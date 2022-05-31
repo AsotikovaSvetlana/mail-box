@@ -64,10 +64,12 @@
         font-size: 12px;
         border-radius: 5px;
         outline: none;
+        background-color: var(--mainFon);
+        color: var(--primaryColor);
       }
 
       button {
-        padding: 5px;
+        padding: 5px 10px;
         border: none;
         border-radius: 5px;
         background-color: var(--contrastColor);
