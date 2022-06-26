@@ -27,7 +27,7 @@ const UserFolder = ({ item, activeFolder, handleClickFolder }) => {
   return (
     <li className={styles.item}>
       <Link
-        to={`/folder/${item.name}`}
+        to={`/folder/${item.type}`}
         className={`${styles.item__link} ${activeFolder === item.name ? `${styles.active}` : ''}`}
         onClick={() => handleClickFolder(item.name)}
       >

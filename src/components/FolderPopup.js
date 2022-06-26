@@ -23,7 +23,7 @@ const FolderPopup = () => {
     e.preventDefault();
 
     if (!nameFolder.name.trim()) {
-      setError('Введите имя папки');
+      setError('Введите название папки');
     } else if (userFolders.find(item => item.name === nameFolder.name.trim())) {
       setError('Папка с таким именем уже существует');
     } else {
