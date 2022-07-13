@@ -1,6 +1,5 @@
 import {
   CHANGE_ACTIVE_FOLDER,
-  GET_MESSAGES,
   SHOW_ADD_MODAL,
   SHOW_EDIT_MODAL,
   HIDE_MODAL,
@@ -11,14 +10,17 @@ import {
   SET_DEFAULT_FOLDERS,
   REMOVE_USER_FOLDER_SUCCESS,
   SHOW_SUBMENU,
+  GET_MESSAGES_REQ,
+  GET_MESSAGES_ERROR,
+  GET_MESSAGES_SUCCESS,
+  GET_MAIL_REQ,
+  GET_MAIL_ERROR,
+  GET_MAIL_SUCCESS,
+  EDIT_MAIL_STATUS,
 } from './actionTypes';
 
 export const changeFolder = (name) => (
   {type: CHANGE_ACTIVE_FOLDER, payload: {name}}
-)
-
-export const getMessages = (messages) => (
-  {type: GET_MESSAGES, payload: {messages}}
 )
 
 export const showAddModal = () => (
@@ -132,3 +134,81 @@ export const removeUserFolder = (id) => async (dispatch) => {
 export const showSubmenu = () => (
   {type: SHOW_SUBMENU}
 )
+
+export const getMessagesRequest = () => (
+  {type: GET_MESSAGES_REQ}
+)
+
+export const getMessagesError = (error) => (
+  {type: GET_MESSAGES_ERROR, payload: {error}}
+)
+
+export const getMessagesSuccess = (messages) => (
+  {type: GET_MESSAGES_SUCCESS, payload: {messages}}
+)
+
+export const getMessages = () => async (dispatch) => {
+  dispatch(getMessagesRequest());
+
+  try {
+    const response = await fetch(`${process.env.REACT_APP_URL}/messages`);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    const messages = await response.json();
+    dispatch(getMessagesSuccess(messages));
+  } catch (error) {
+    dispatch(getMessagesError(error.message));
+  }
+}
+
+export const getMailRequest = () => (
+  {type: GET_MAIL_REQ}
+)
+
+export const getMailError = (error) => (
+  {type: GET_MAIL_ERROR, payload: {error}}
+)
+
+export const getMailSuccess = (mail) => (
+  {type: GET_MAIL_SUCCESS, payload: {mail}}
+)
+
+export const getMail = (id) => async (dispatch) => {
+  dispatch(getMailRequest());
+
+  try {
+    const response = await fetch(`${process.env.REACT_APP_URL}/messages/${id}`);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    const mail = await response.json();
+    dispatch(getMailSuccess(mail));
+  } catch (error) {
+    dispatch(getMailError(error.message));
+  }
+}
+
+export const editMailStatus = () => (
+  {type: EDIT_MAIL_STATUS}
+)
+
+export const fetchEditMail = (mail) => async (dispatch) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_URL}/messages`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(mail),
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+  } catch (e) {
+    console.log("Edit mail error");
+  }
+}

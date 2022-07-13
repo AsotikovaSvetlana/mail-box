@@ -1,35 +1,36 @@
 import {
-  GET_MESSAGES_REQ,
-  GET_MESSAGES_ERROR,
-  GET_MESSAGES_SUCCESS,
+  GET_MAIL_REQ,
+  GET_MAIL_ERROR,
+  GET_MAIL_SUCCESS,
 } from '../actions/actionTypes';
 
 const initialState = {
   loading: false,
   error: false,
-  messages: [],
+  mail: null,
 }
 
-export default function getMessagesReducer(state = initialState, action) {
+export default function getMailReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_MESSAGES_REQ:
+    case GET_MAIL_REQ:
       return {
         ...state,
         loading: true,
-        error: false
+        error: false,
+        mail: null
       }
-    case GET_MESSAGES_ERROR:
+    case GET_MAIL_ERROR:
       return {
         ...state,
         loading: false,
         error: true
       }
-    case GET_MESSAGES_SUCCESS:
-      const { messages } = action.payload;
+    case GET_MAIL_SUCCESS:
+      const { mail } = action.payload;
       return {
         ...state,
         loading: false,
-        messages
+        mail
       }
     default:
       return state;

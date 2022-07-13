@@ -1,11 +1,11 @@
 .header {
   min-height: 70px;
-  padding: 25px;
+  padding: 20px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   column-gap: 30px;
-  background-color: var(--mainFon);
+  background: var(--headerFon);
 
   &__search {
     width: 25px;

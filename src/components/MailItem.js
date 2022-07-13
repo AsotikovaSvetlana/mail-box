@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import { ReactComponent as Arrow } from '../assets/icons/mail-arrow.svg';
 import { ReactComponent as Del } from '../assets/icons/icon-del.svg';
+import Tag from "./Tag";
 
 const MailItem = ({ message }) => {
   const [value, setValue] = useState('Переместить...');
@@ -35,6 +36,7 @@ const MailItem = ({ message }) => {
 
   return (
     <li className={styles.mail}>
+      {'isRead' in message && <Tag isRead={message.isRead} />}
       <Link to={`/message/${message.id}`} className={styles.mail__link}>
         <span>
           {message.name}

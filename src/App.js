@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Navigate } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Mail from './pages/Mail';
 import Main from './pages/Main';
 import styles from './styles/App.module.scss';
 import FolderPopup from './components/FolderPopup';
-import { getMessages, getDefaultFolders, getUserFolders } from './store/actions/actionCreators';
-import { messages as data } from './data/messages';
 import Header from './components/Header';
 
 function App() {
   const [isDarkMode, setDarkMode] = useState(false);
   const { activeFolder } = useSelector(state => state.activeFolder);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMessages(data));
-    dispatch(getDefaultFolders());
-    dispatch(getUserFolders());
-  }, [dispatch])
 
   useEffect(() => {
     const body = document.getElementsByTagName('body')[0];

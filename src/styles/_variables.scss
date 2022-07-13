@@ -11,6 +11,7 @@ body {
   --switcherFon: #DFE2EA;
   --switcherToggle: #ffffff;
   --switcherShadow: 0 2px 15px rgb(0 0 0 / 15%);
+  --headerFon: linear-gradient(to right, #114357, #f29492);
 }
 
 body.dark {
@@ -23,4 +24,5 @@ body.dark {
   --switcherFon: #009bee;
   --switcherToggle: #2d2c35;
   --switcherShadow: 0 2px 15px #1aadfc;
+  --headerFon: linear-gradient(to left, #000046, #1cb5e0);
 }
