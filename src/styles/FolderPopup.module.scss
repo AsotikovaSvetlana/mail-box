@@ -33,7 +33,7 @@
     text-align: center;
     border-radius: var(--navigationRadius);
     background-color: var(--modalBackground);
-    color: #000000;
+    color: var(--primaryColor);
     z-index: 10;
 
     p {
@@ -58,6 +58,7 @@
     font-size: 15px;
     border: 1px solid var(--modalBorder);
     border-radius: var(--navigationRadius);
+    background-color: var(--modalInput);
     outline: none;
   }
 }

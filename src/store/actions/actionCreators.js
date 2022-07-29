@@ -197,7 +197,7 @@ export const editMailStatus = () => (
   {type: EDIT_MAIL_STATUS}
 )
 
-export const fetchEditMail = (mail) => async (dispatch) => {
+export const fetchEditMail = (mail) => async () => {
   try {
     const response = await fetch(`${process.env.REACT_APP_URL}/messages`, {
       method: 'POST',
@@ -210,5 +210,55 @@ export const fetchEditMail = (mail) => async (dispatch) => {
     }
   } catch (e) {
     console.log("Edit mail error");
+  }
+}
+
+export const deleteMail = (id) => async (dispatch) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_URL}/messages/${id}`, {
+      method: 'DELETE',
+      headers: {'Content-Type': 'application/json'},
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    dispatch(getMessages());
+  } catch (e) {
+    console.log("Delete mail error");
+  }
+}
+
+export const moveMail = (folder, message) => async (dispatch) => {
+  let body;
+  if (folder.type === 'userFolder') {
+    body = {
+      ...message,
+      type: folder.type,
+      userFolder: folder.name,
+    }
+  } else {
+    body = {
+      ...message,
+      type: folder.type,
+      userFolder: null,
+    }
+  }
+
+  try {
+    const response = await fetch(`${process.env.REACT_APP_URL}/messages`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(body),
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    dispatch(getMessages());
+  } catch (e) {
+    console.log("Move mail error");
   }
 }

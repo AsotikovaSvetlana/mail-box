@@ -6,12 +6,15 @@ body {
   --contrastColor: #f1514f;
   --contrastHover: #f33734;
   --modalBackground: #FFFFFF;
+  --modalInput: #FFFFFF;
   --modalBorder: rgb(148, 148, 148);
   --navigationRadius: 10px;
   --switcherFon: #DFE2EA;
   --switcherToggle: #ffffff;
   --switcherShadow: 0 2px 15px rgb(0 0 0 / 15%);
   --headerFon: linear-gradient(to right, #114357, #f29492);
+  --loaderOne: #a90000;
+  --loaderTwo: #FFFFFF;
 }
 
 body.dark {
@@ -25,4 +28,8 @@ body.dark {
   --switcherToggle: #2d2c35;
   --switcherShadow: 0 2px 15px #1aadfc;
   --headerFon: linear-gradient(to left, #000046, #1cb5e0);
+  --modalBackground: #303030;
+  --modalInput: #303030;
+  --loaderOne: #FFFFFF;
+  --loaderTwo: #000000;
 }

@@ -20,4 +20,9 @@ export const GET_MESSAGES_SUCCESS = "GET_MESSAGES_SUCCESS";
 export const GET_MAIL_REQ = "GET_MAIL_REQ";
 export const GET_MAIL_ERROR = "GET_MAIL_ERROR";
 export const GET_MAIL_SUCCESS = "GET_MAIL_SUCCESS";
+
 export const EDIT_MAIL_STATUS = "EDIT_MAIL_STATUS";
+
+export const DEL_MAIL_REQ = "DEL_MAIL_REQ";
+export const DEL_MAIL_SUCCESS = "DEL_MAIL_SUCCESS";
+export const DEL_MAIL_ERROR = "DEL_MAIL_ERROR";

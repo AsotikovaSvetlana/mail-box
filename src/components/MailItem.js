@@ -1,32 +1,37 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from '../styles/MailItem.module.scss';
-import { Link } from "react-router-dom";
 import moment from "moment";
 import { ReactComponent as Arrow } from '../assets/icons/mail-arrow.svg';
 import { ReactComponent as Del } from '../assets/icons/icon-del.svg';
 import Tag from "./Tag";
+import { deleteMail, moveMail } from "../store/actions/actionCreators";
+import Hint from "./Hint";
 
 const MailItem = ({ message }) => {
   const [value, setValue] = useState('Переместить...');
   const [isOpen, setOpen] = useState(false);
+  const [hint, setHint] = useState(false);
   const { activeFolder } = useSelector(state => state.activeFolder);
   const { userFolders } = useSelector(state => state.userFolders);
   const { folders } = useSelector(state => state.defaultFolders);
+  const dispatch = useDispatch();
 
-  const options = [{name: 'Переместить...'}, ...folders, ...userFolders].filter(item => item.name !== activeFolder && item.type !== activeFolder && item.type !== 'userFolders');
+  const options = [...folders, ...userFolders].filter(item => item.name !== activeFolder && item.type !== activeFolder && item.type !== 'userFolders');
 
   const handleChange = (event) => {
     setValue(event.target.value);
   }
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log('Update backend');
+    const folder = options.find(el => el.name === value);
+    dispatch(moveMail(folder, message));
   }
 
   const handleMailDelete = () => {
-    console.log('Update backend');
+    dispatch(deleteMail(message.id));
   }
 
   const handleShowOptions = (event) => {
@@ -54,6 +59,7 @@ const MailItem = ({ message }) => {
       <div className={`${styles.mail__options} ${isOpen ? `${styles.open}` : ''}`}>
         <form className={styles.mail__options_form} onSubmit={handleFormSubmit}>
           <select value={value} onChange={handleChange}>
+            <option disabled>Переместить...</option>
             {
               options?.map(option => (
                 <option value={option.name} key={option.name}>{option.name}</option>
@@ -62,7 +68,13 @@ const MailItem = ({ message }) => {
           </select>
           <button>Ok</button>
         </form>
-        <div className={styles.mail__options_del} onClick={handleMailDelete}>
+        <div
+          className={styles.mail__options_del}
+          onClick={handleMailDelete}
+          onMouseEnter={() => setHint(true)}
+          onMouseLeave={() => setHint(false)}
+        >
+          <Hint active={hint} type={activeFolder} />
           <Del />
         </div>
       </div>

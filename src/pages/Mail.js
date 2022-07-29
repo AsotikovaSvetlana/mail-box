@@ -7,9 +7,9 @@ import Navigation from '../components/Navigation';
 import { getMail, fetchEditMail } from '../store/actions/actionCreators';
 
 function Mail() {
+  const { id } = useParams();
   const { mail } = useSelector(state => state.mail);
   const dispatch = useDispatch();
-  const { id } = useParams();
 
   useEffect(() => {
     dispatch(fetchEditMail({...mail, isRead: true}));
