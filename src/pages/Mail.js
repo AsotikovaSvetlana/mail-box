@@ -12,6 +12,8 @@ function Mail() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (!mail || mail.isRead) return;
+
     dispatch(fetchEditMail({...mail, isRead: true}));
   }, [dispatch, mail]);
 
