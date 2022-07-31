@@ -1,5 +1,5 @@
 # Mail Box
-### [Demo](https://asotikovasvetlana.github.io/mail-box/)
+### [Demo](https://mail-box.vercel.app/)
 
 :hourglass: In progress...
 
