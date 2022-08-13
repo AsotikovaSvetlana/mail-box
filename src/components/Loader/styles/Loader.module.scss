@@ -13,21 +13,27 @@
     height: 156px;
     opacity: 0;
   }
-}.loader__content div {
+}
+
+.loader__content div {
   position: absolute;
   border-width: 2px;
   border-style: solid;
   opacity: 1;
   border-radius: 50%;
   animation: loader__content 1.2195121951219512s cubic-bezier(0,0.2,0.8,1) infinite;
-}.loader__content div:nth-child(1) {
+}
+
+.loader__content div:nth-child(1) {
   border-color: var(--loaderOne);
   animation-delay: 0s;
 }
+
 .loader__content div:nth-child(2) {
   border-color: var(--loaderTwo);
   animation-delay: -0.6097560975609756s;
 }
+
 .loader {
   width: 200px;
   height: 200px;
@@ -39,6 +45,7 @@
   background: transparent;
   z-index: 10;
 }
+
 .loader__content {
   width: 100%;
   height: 100%;
@@ -47,4 +54,7 @@
   backface-visibility: hidden;
   transform-origin: 0 0;
 }
-.loader__content div { box-sizing: content-box; }
+
+.loader__content div { 
+  box-sizing: content-box; 
+}

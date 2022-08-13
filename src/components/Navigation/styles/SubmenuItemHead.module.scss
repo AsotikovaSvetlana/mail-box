@@ -1,0 +1,25 @@
+.submenu {
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  text-decoration: none;
+  border-radius: var(--navigationRadius);
+  color: inherit;
+
+  span {
+    width: 15px;
+    transform: rotate(90deg);
+    transition: transform 0.2s linear;
+
+    &.transform {
+      transform: rotate(180deg);
+      transition: transform 0.2s linear;
+    }
+
+    &.modal {
+      width: 15px;
+      margin-left: auto;
+    }
+  }
+}

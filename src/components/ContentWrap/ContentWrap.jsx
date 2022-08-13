@@ -1,5 +1,5 @@
-import React from "react";
-import styles from '../styles/ContentWrap.module.scss';
+import React from 'react';
+import styles from './styles/ContentWrap.module.scss';
 
 const ContentWrap = ({ children }) => {
   return (

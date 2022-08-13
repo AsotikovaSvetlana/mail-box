@@ -35,27 +35,27 @@ export const hideModal = () => (
   {type: HIDE_MODAL}
 )
 
-export const sentFolder = () => async (dispatch, getState) => {
-  const { handleFolder: { nameFolder } } = getState();
-  if (!nameFolder.name.trim()) return;
+// export const sentFolder = () => async (dispatch, getState) => {
+//   const { handleFolder: { nameFolder } } = getState();
+//   if (!nameFolder.name.trim()) return;
 
-  try {
-    const response = await fetch(`${process.env.REACT_APP_URL}/user-folders`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(nameFolder),
-    });
+//   try {
+//     const response = await fetch(`${process.env.REACT_APP_URL}/user-folders`, {
+//       method: 'POST',
+//       headers: {'Content-Type': 'application/json'},
+//       body: JSON.stringify(nameFolder),
+//     });
 
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
+//     if (!response.ok) {
+//       throw new Error(response.statusText);
+//     }
 
-    dispatch(hideModal());
-    dispatch(getUserFolders());
-  } catch (e) {
-    console.log('error');
-  }
-}
+//     dispatch(hideModal());
+//     // dispatch(getUserFolders());
+//   } catch (e) {
+//     console.log('error');
+//   }
+// }
 
 export const changeInputModal = (value) => (
   {type: CHANGE_INPUT_MODAL, payload: {value}}
@@ -73,63 +73,63 @@ export const getUserFoldersSuccess = (data) => (
   {type: GET_USER_FOLDERS_SUCCESS, payload: {data}}
 )
 
-export const getUserFolders = () => async (dispatch) => {
-  dispatch(getUserFoldersRequest());
+// export const getUserFolders = () => async (dispatch) => {
+//   dispatch(getUserFoldersRequest());
 
-  try {
-    const response = await fetch(`${process.env.REACT_APP_URL}/user-folders`);
+//   try {
+//     const response = await fetch(`${process.env.REACT_APP_URL}/user-folders`);
 
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
+//     if (!response.ok) {
+//       throw new Error(response.statusText);
+//     }
 
-    const userFolders = await response.json();
-    dispatch(getUserFoldersSuccess(userFolders));
-  } catch (error) {
-    dispatch(getUserFoldersError(error.message));
-  }
-}
+//     const userFolders = await response.json();
+//     dispatch(getUserFoldersSuccess(userFolders));
+//   } catch (error) {
+//     dispatch(getUserFoldersError(error.message));
+//   }
+// }
 
 export const setDefaultFolders = (folders) => (
   {type: SET_DEFAULT_FOLDERS, payload: {folders}}
 )
 
-export const getDefaultFolders = () => async (dispatch) => {
-  try {
-    const response = await fetch(`${process.env.REACT_APP_URL}/folders`);
+// export const getDefaultFolders = () => async (dispatch) => {
+//   try {
+//     const response = await fetch(`${process.env.REACT_APP_URL}/folders`);
 
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
+//     if (!response.ok) {
+//       throw new Error(response.statusText);
+//     }
 
-    const folders = await response.json();
-    dispatch(setDefaultFolders(folders));
-  } catch (error) {
-    console.log('error');
-  }
-}
+//     const folders = await response.json();
+//     dispatch(setDefaultFolders(folders));
+//   } catch (error) {
+//     console.log('error');
+//   }
+// }
 
-export const removeUserFolderSuccess = () => (
-  {type: REMOVE_USER_FOLDER_SUCCESS}
-)
+// export const removeUserFolderSuccess = () => (
+//   {type: REMOVE_USER_FOLDER_SUCCESS}
+// )
 
-export const removeUserFolder = (id) => async (dispatch) => {
-  try {
-    const response = await fetch(`${process.env.REACT_APP_URL}/user-folders/${id}`, {
-      method: 'DELETE',
-      headers: {'Content-Type': 'application/json'},
-    });
+// export const removeUserFolder = (id) => async (dispatch) => {
+//   try {
+//     const response = await fetch(`${process.env.REACT_APP_URL}/user-folders/${id}`, {
+//       method: 'DELETE',
+//       headers: {'Content-Type': 'application/json'},
+//     });
 
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
+//     if (!response.ok) {
+//       throw new Error(response.statusText);
+//     }
     
-    dispatch(removeUserFolderSuccess());
-    dispatch(getUserFolders());
-  } catch (error) {
-    console.log('error');
-  } 
-}
+//     dispatch(removeUserFolderSuccess());
+//     // dispatch(getUserFolders());
+//   } catch (error) {
+//     console.log('error');
+//   } 
+// }
 
 export const showSubmenu = () => (
   {type: SHOW_SUBMENU}
@@ -147,22 +147,22 @@ export const getMessagesSuccess = (messages) => (
   {type: GET_MESSAGES_SUCCESS, payload: {messages}}
 )
 
-export const getMessages = () => async (dispatch) => {
-  dispatch(getMessagesRequest());
+// export const getMessages = () => async (dispatch) => {
+//   dispatch(getMessagesRequest());
 
-  try {
-    const response = await fetch(`${process.env.REACT_APP_URL}/messages`);
+//   try {
+//     const response = await fetch(`${process.env.REACT_APP_URL}/messages`);
 
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
+//     if (!response.ok) {
+//       throw new Error(response.statusText);
+//     }
 
-    const messages = await response.json();
-    dispatch(getMessagesSuccess(messages));
-  } catch (error) {
-    dispatch(getMessagesError(error.message));
-  }
-}
+//     const messages = await response.json();
+//     dispatch(getMessagesSuccess(messages));
+//   } catch (error) {
+//     dispatch(getMessagesError(error.message));
+//   }
+// }
 
 export const getMailRequest = () => (
   {type: GET_MAIL_REQ}
@@ -224,7 +224,7 @@ export const deleteMail = (id) => async (dispatch) => {
       throw new Error(response.statusText);
     }
 
-    dispatch(getMessages());
+    // dispatch(getMessages());
   } catch (e) {
     console.log("Delete mail error");
   }
@@ -257,7 +257,7 @@ export const moveMail = (folder, message) => async (dispatch) => {
       throw new Error(response.statusText);
     }
 
-    dispatch(getMessages());
+    // dispatch(getMessages());
   } catch (e) {
     console.log("Move mail error");
   }

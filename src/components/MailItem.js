@@ -9,16 +9,16 @@ import Tag from "./Tag";
 import { deleteMail, moveMail } from "../store/actions/actionCreators";
 import Hint from "./Hint";
 
-const MailItem = ({ message }) => {
+const MailItem = ({ mail }) => {
   const [value, setValue] = useState('Переместить...');
   const [isOpen, setOpen] = useState(false);
   const [hint, setHint] = useState(false);
-  const { activeFolder } = useSelector(state => state.activeFolder);
-  const { userFolders } = useSelector(state => state.userFolders);
-  const { folders } = useSelector(state => state.defaultFolders);
+  // const { activeFolder } = useSelector(state => state.activeFolder);
+  // const { userFolders } = useSelector(state => state.userFolders);
+  // const { folders } = useSelector(state => state.defaultFolders);
   const dispatch = useDispatch();
 
-  const options = [...folders, ...userFolders].filter(item => item.name !== activeFolder && item.type !== activeFolder && item.type !== 'userFolders');
+  // const options = [...folders, ...userFolders].filter(item => item.name !== activeFolder && item.type !== activeFolder && item.type !== 'userFolders');
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -26,12 +26,12 @@ const MailItem = ({ message }) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const folder = options.find(el => el.name === value);
-    dispatch(moveMail(folder, message));
+    // const folder = options.find(el => el.name === value);
+    // dispatch(moveMail(folder, message));
   }
 
   const handleMailDelete = () => {
-    dispatch(deleteMail(message.id));
+    dispatch(deleteMail(mail.id));
   }
 
   const handleShowOptions = (event) => {
@@ -41,16 +41,16 @@ const MailItem = ({ message }) => {
 
   return (
     <li className={styles.mail}>
-      {'isRead' in message && <Tag isRead={message.isRead} />}
-      <Link to={`/message/${message.id}`} className={styles.mail__link}>
+      {'isRead' in mail && <Tag isRead={mail.isRead} />}
+      <Link to={`/message/${mail.id}`} className={styles.mail__link}>
         <span>
-          {message.name}
+          {mail.name}
         </span>
         <span>
-          {message.message.slice(0, 70)}
+          {mail.message.slice(0, 70)}
         </span>
         <span>
-          {moment(message.date).format('DD.MM.YYYY')}
+          {moment(mail.date).format('DD.MM.YYYY')}
         </span>
         <span className={`${isOpen ? `${styles.transform}` : ''}`} onClick={handleShowOptions}>
           <Arrow />
@@ -61,9 +61,9 @@ const MailItem = ({ message }) => {
           <select value={value} onChange={handleChange}>
             <option disabled>Переместить...</option>
             {
-              options?.map(option => (
-                <option value={option.name} key={option.name}>{option.name}</option>
-              ))
+              // options?.map(option => (
+              //   <option value={option.name} key={option.name}>{option.name}</option>
+              // ))
             }
           </select>
           <button>Ok</button>
@@ -74,7 +74,7 @@ const MailItem = ({ message }) => {
           onMouseEnter={() => setHint(true)}
           onMouseLeave={() => setHint(false)}
         >
-          <Hint active={hint} type={activeFolder} />
+          {/* <Hint active={hint} type={activeFolder} /> */}
           <Del />
         </div>
       </div>
