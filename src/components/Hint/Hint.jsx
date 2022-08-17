@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../styles/Hint.module.scss';
+import styles from './styles/Hint.module.scss';
 
-export default function Hint({ active, type }) {
+const Hint = ({ active, type }) => {
   return (
     active
     ?
@@ -17,3 +17,5 @@ export default function Hint({ active, type }) {
     null
   )
 }
+
+export default Hint;

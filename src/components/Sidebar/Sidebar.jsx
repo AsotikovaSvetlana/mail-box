@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles/Sidebar.module.scss';
 import { 
-  changeActiveFolder, fetchDefaultFolders, toggleSubmenu, fetchUserFolders, showModal, deleteUserFolder,
+  changeActiveFolder, toggleSubmenu, showModal, deleteUserFolder,
 } from '../../store/reducers/foldersSlice';
 import NavList from '../Navigation/NavList';
 import NavItem from '../Navigation/NavItem';
@@ -14,11 +14,6 @@ const Sidebar = () => {
   const { defaultFolders, userFolders, activeFolder, submenu } = useSelector(state => state.folders);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    dispatch(fetchDefaultFolders());
-    dispatch(fetchUserFolders());
-  }, [dispatch])
 
   const handleActiveFolder = (name) => {
     dispatch(changeActiveFolder(name));

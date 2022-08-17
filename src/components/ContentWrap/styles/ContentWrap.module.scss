@@ -21,4 +21,13 @@
     opacity: 0.5;
     z-index: 1;
   }
+
+  &__load {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 70px;
+    font-size: 22px;
+    color: #FFFFFF;
+    z-index: 10;
+  }
 }

@@ -6,12 +6,16 @@ import Loader from '../../components/Loader';
 
 const HomePage = () => {
   const { mails, loading } = useSelector(state => state.mailsList);
-  const { activeFolder } = useSelector(state => state.folders);
+  const { activeFolder, defaultFolders, userFolders } = useSelector(state => state.folders);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchMailsList());
   }, [dispatch])
+
+  if (!defaultFolders.folders.length || !userFolders.folders.length) {
+    return null;
+  }
 
   return (
     <>
