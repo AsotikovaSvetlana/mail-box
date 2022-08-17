@@ -1,0 +1,33 @@
+.container {
+  min-height: 90vh;
+  max-width: 1400px;
+  padding: 35px 20px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  column-gap: 40px;
+  border: 1px solid var(--mainBorder);
+  border-radius: 20px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--mainFon);
+    border-radius: 20px;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  &__load {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 70px;
+    font-size: 22px;
+    color: #FFFFFF;
+    z-index: 10;
+  }
+}

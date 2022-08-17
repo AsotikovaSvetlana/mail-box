@@ -1,0 +1,47 @@
+.mail {
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: var(--mainFon);
+  border-radius: 15px;
+
+  &__link {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    text-decoration: none;
+    border-radius: 15px;
+    color: inherit;
+    transition: box-shadow 0.1s linear 0s;
+
+    &:hover {
+      box-shadow: rgba(3, 1, 1, 0.259) 0px 6px 13px 0px;
+    }
+
+    span {
+      &:nth-child(1) {
+        width: 20%;
+      }
+  
+      &:nth-child(2) {
+        width: 55%;
+      }
+  
+      &:nth-child(3) {
+        width: 25%;
+        text-align: center;
+      }
+
+      &:nth-child(4) {
+        width: 25px;
+        height: 25px;
+        transition: transform 0.1s linear 0s;
+      }
+    }
+  }
+}
+
+.transform {
+  transform: rotate(-90deg);
+}

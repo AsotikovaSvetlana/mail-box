@@ -1,15 +1,15 @@
-import { createStore, compose, applyMiddleware  } from 'redux';
-import thunk from 'redux-thunk'
+import { configureStore } from '@reduxjs/toolkit';
+import { MailBoxAPI } from '../api/MailBoxAPI';
 import reducer from './reducers';
 
-const composeEnhancers =
-  typeof window === 'object' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
-
-const store = createStore(
+const store = configureStore({
   reducer,
-  composeEnhancers(applyMiddleware(thunk)),
-);
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: MailBoxAPI,
+      }
+    })
+});
 
 export default store;
