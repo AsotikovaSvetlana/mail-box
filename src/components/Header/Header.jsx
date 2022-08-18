@@ -1,15 +1,13 @@
 import React from 'react';
 import { ReactComponent as Moon } from '../../assets/icons/moon.svg';
 import { ReactComponent as Sun } from '../../assets/icons/sun.svg';
-import { ReactComponent as Search } from '../../assets/icons/search.svg';
 import styles from './styles/Header.module.scss';
+import Search from '../Search';
 
 const Header = ({ darkMode, handleMode }) => {
   return (
     <header className={styles.header}>
-      <div className={styles.header__search}>
-        <Search />
-      </div>
+      <Search />
       <div className={styles.header__switch} onClick={handleMode}>
         <div className={`${styles.header__switch_toggle} ${darkMode ? `${styles.darkMode}` : ''}`}>
           {darkMode ? <Moon /> : <Sun />}

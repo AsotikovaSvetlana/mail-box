@@ -16,10 +16,17 @@ const mailsListSlice = createSlice({
   name: 'mailsList',
   initialState: {
     mails: [],
+    filteredMails: [],
     error: false,
     loading: false,
   },
-  reducers: {},
+  reducers: {
+    filterMails: (state, action) => {
+      const query = action.payload.toLowerCase();
+      const filteredMails = state.mails.filter(item => item.email.toLowerCase().includes(query) || item.name.toLowerCase().includes(query) || item.message.toLowerCase().includes(query));
+      state.filteredMails = filteredMails;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchMailsList.pending, (state) => {
       state.loading = true;
@@ -28,6 +35,7 @@ const mailsListSlice = createSlice({
     builder.addCase(fetchMailsList.fulfilled, (state, action) => {
       state.loading = false;
       state.mails = action.payload;
+      state.filteredMails = action.payload;
     })
     builder.addCase(fetchMailsList.rejected, (state) => {
       state.loading = false;
@@ -36,4 +44,5 @@ const mailsListSlice = createSlice({
   }
 })
 
+export const { filterMails } = mailsListSlice.actions;
 export default mailsListSlice.reducer;

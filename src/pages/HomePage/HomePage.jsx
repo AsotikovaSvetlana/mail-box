@@ -5,7 +5,7 @@ import MailList from '../../components/MailList';
 import Loader from '../../components/Loader';
 
 const HomePage = () => {
-  const { mails, loading } = useSelector(state => state.mailsList);
+  const { filteredMails, loading } = useSelector(state => state.mailsList);
   const { activeFolder, defaultFolders, userFolders } = useSelector(state => state.folders);
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ const HomePage = () => {
         !loading
         ?
         <MailList
-          data={mails}
+          data={filteredMails}
           activeFolder={activeFolder}
         />
         :

@@ -6,6 +6,7 @@ import MailDetails from '../../components/Mail/MailDetails';
 import MailHead from '../../components/Mail/MailHead';
 import Loader from '../../components/Loader';
 import { fetchMail, editMail } from '../../store/reducers/mailSlice';
+import { clearSearch } from '../../store/reducers/searchSlice';
 
 const MailPage = () => {
   const { id } = useParams();
@@ -18,6 +19,7 @@ const MailPage = () => {
   }, [dispatch, mail]);
 
   useEffect(() => {
+    dispatch(clearSearch());
     dispatch(fetchMail(id));
   }, [dispatch, id]);
   

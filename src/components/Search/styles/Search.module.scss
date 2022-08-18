@@ -1,0 +1,42 @@
+.search {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  color: #FFFFFF;
+
+  &__input {
+    min-width: 300px;
+    max-width: 500px;
+    display: none;
+    transition: width 0.2s linear;
+
+    &.open {
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 15px;
+      font-family: inherit;
+      font-size: inherit;
+      border-radius: var(--navigationRadius);
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__icon {
+    width: 25px;
+    height: 24px;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+      color: var(--contrastHover);
+    }
+  }
+
+  .open + &__icon {
+    color: var(--contrastHover);
+  }
+}
