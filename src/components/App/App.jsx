@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './styles/App.module.scss';
@@ -9,25 +9,17 @@ import Sidebar from '../Sidebar';
 import HomePage from '../../pages/HomePage';
 import MailPage from '../../pages/MailPage';
 import { fetchDefaultFolders, fetchUserFolders } from '../../store/reducers/foldersSlice';
+import useTheme from '../../hooks/useTheme';
 
 function App() {
-  const [isDarkMode, setDarkMode] = useState(false);
   const { activeFolder } = useSelector(state => state.folders);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const body = document.getElementsByTagName('body')[0];
-    isDarkMode ? body.classList.add('dark') : body.classList.remove('dark');
-  }, [isDarkMode])
+  const { isDarkMode, handleMode } = useTheme();
 
   useEffect(() => {
     dispatch(fetchDefaultFolders());
     dispatch(fetchUserFolders());
   }, [dispatch])
-
-  const handleMode = () => {
-    setDarkMode(prevMode => !prevMode);
-  }
 
   return (
     <>
