@@ -5,9 +5,23 @@
   margin: auto;
   position: relative;
   display: flex;
-  column-gap: 40px;
+  column-gap: 60px;
   border: 1px solid var(--mainBorder);
   border-radius: 20px;
+
+  @media (max-width: 960px) {
+    column-gap: 35px;
+  }
+
+  @media (max-width: 768px) {
+    column-gap: 25px;
+  }
+
+  @media (max-width: 640px) {
+    padding: 25px 10px;
+    flex-direction: column;
+    column-gap: 10px;
+  }
 
   &::before {
     content: "";

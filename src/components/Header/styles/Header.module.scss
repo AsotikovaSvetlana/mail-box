@@ -7,6 +7,12 @@
   column-gap: 30px;
   background: var(--headerFon);
 
+  @media (max-width: 450px) {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    row-gap: 20px;
+  }
+
   &__switch {
     width: 115px;
     height: 40px;

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles/Sidebar.module.scss';
+import { ReactComponent as Menu } from '../../assets/icons/menu.svg';
+import { ReactComponent as Close } from '../../assets/icons/close.svg';
 import { 
   changeActiveFolder, toggleSubmenu, showModal, deleteUserFolder,
 } from '../../store/reducers/foldersSlice';
@@ -11,6 +13,7 @@ import NavItemLink from '../Navigation/NavItemLink';
 import SubmenuItem from '../Navigation/SubmenuItem';
 
 const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const { defaultFolders, userFolders, activeFolder, submenu } = useSelector(state => state.folders);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -45,9 +48,16 @@ const Sidebar = () => {
     dispatch(showModal({title: 'Редактировать папку', folder}));
   }
 
+  const handleBurgerMenu = () => {
+    setIsOpen(prevState => !prevState);
+  }
+
   return (
     <aside className={styles.sidebar}>
-      <nav>
+      <div className={styles.sidebar__menu} onClick={handleBurgerMenu}>
+        {isOpen ? <Close /> : <Menu />}
+      </div>
+      <nav className={`${styles.sidebar__nav} ${isOpen ? `${styles.open}` : ""}`}>
         <NavList isActive={true}>
           {
             defaultFolders.folders.map(item => (

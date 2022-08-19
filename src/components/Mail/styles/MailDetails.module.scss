@@ -3,4 +3,12 @@
   flex-grow: 1;
   border-radius: 5px;
   background-color: var(--mainFon);
+
+  @media (max-width: 768px) {
+    padding: 25px 20px;
+  }
+
+  @media (max-width: 640px) {
+    padding-top: 35px;
+  }
 }

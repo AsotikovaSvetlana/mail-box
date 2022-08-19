@@ -6,4 +6,8 @@
   font-weight: 500;
   background-color: var(--mainFon);
   border-radius: 5px;
+
+  @media (max-width: 768px) {
+    padding: 15px 20px;
+  }
 }

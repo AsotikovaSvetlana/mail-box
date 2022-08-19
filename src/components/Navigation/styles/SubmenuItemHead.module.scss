@@ -7,10 +7,18 @@
   border-radius: var(--navigationRadius);
   color: inherit;
 
+  @media (max-width: 768px) {
+    padding: 10px 13px;
+  }
+
   span {
     width: 15px;
     transform: rotate(90deg);
     transition: transform 0.2s linear;
+
+    @media (max-width: 768px) {
+      width: 12px;
+    }
 
     &.transform {
       transform: rotate(180deg);
@@ -20,6 +28,10 @@
     &.modal {
       width: 15px;
       margin-left: auto;
+
+      @media (max-width: 768px) {
+        width: 12px;
+      }
     }
   }
 }

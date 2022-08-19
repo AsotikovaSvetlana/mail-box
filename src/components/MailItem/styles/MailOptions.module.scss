@@ -10,6 +10,12 @@
   right: 45px;
   background-color: var(--mainFon);
 
+  @media (max-width: 400px) {
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 15px;
+  }
+
   &.open {
     display: flex;
   }

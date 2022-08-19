@@ -1,14 +1,16 @@
 .search {
+  min-width: 250px;
+  max-width: 400px;
   display: flex;
+  flex-grow: 1;
   align-items: center;
+  justify-content: flex-end;
   column-gap: 15px;
   color: #FFFFFF;
 
   &__input {
-    min-width: 300px;
-    max-width: 500px;
+    width: 100%;
     display: none;
-    transition: width 0.2s linear;
 
     &.open {
       display: block;
@@ -20,8 +22,14 @@
       font-family: inherit;
       font-size: inherit;
       border-radius: var(--navigationRadius);
+      background-color: var(--mainFon);
       border: none;
       outline: none;
+      color: var(--primaryColor);
+
+      @media (max-width: 450px) {
+        font-size: 12px;
+      }
     }
   }
 

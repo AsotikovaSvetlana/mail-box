@@ -7,6 +7,18 @@
   border: none;
   cursor: pointer;
 
+  @media (max-width: 960px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 640px) {
+    z-index: 15;
+  }
+
   &::before {
     content: "";
     position: absolute;
