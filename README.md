@@ -1,6 +1,6 @@
 # :envelope: Mail Box
 
-<h3 align="center"><a href="https://mail-fwwv88sqj-asotikovasvetlana.vercel.app/folder/inbox" target="_blank">Demo</a></h3>
+<h3 align="center"><a href="https://mail-box.vercel.app" target="_blank">Demo</a></h3>
 
 Почтовый клиент (readonly), который позволяет: просматривать письма, сгруппированные по папкам, удалять и перемещать письма между папками, добавлять/удалять/редактировать пользовательские папки.
 
